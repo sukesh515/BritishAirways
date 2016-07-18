@@ -2,8 +2,10 @@ package TestCases;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -33,7 +35,12 @@ public void LoginBrowser() throws IOException, InterruptedException{
 		driver.findElement(By.xpath(".//*[@id='depDate']")).click();
 		driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-e']")).click();
 		driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-e']")).click();
+		driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-e']")).click();
+
+		driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-e']")).click();
+
 	
+		// Thread.sleep(300L);
 		
 		WebElement datepicker = driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']"));  
 		// List<WebElement> rows=datepicker.findElements(By.tagName("tr"));
@@ -43,8 +50,8 @@ public void LoginBrowser() throws IOException, InterruptedException{
 		
 		for (WebElement cell: columns){  
 			//Select 20th Date   
-			if (cell.getText().equals("22")){  
-			cell.findElement(By.linkText("22")).click();  
+			if (cell.getText().equals("26")){  
+			cell.findElement(By.linkText("26")).click();  
 			break;  
 			 }  
 			}   
@@ -52,10 +59,11 @@ public void LoginBrowser() throws IOException, InterruptedException{
 		
 		driver.findElement(By.xpath(".//*[@id='retDate']")).click();
 		
-        Thread.sleep(300L); 
+       // Thread.sleep(300L); 
 		
 		driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-e']")).click();	
-		
+		driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-e']")).click();
+
 		WebElement datepickerre = driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']"));  
 		// List<WebElement> rows=datepicker.findElements(By.tagName("tr"));
 		List<WebElement> columnre=datepickerre.findElements(By.tagName("td"));
@@ -65,8 +73,8 @@ public void LoginBrowser() throws IOException, InterruptedException{
 		
 		for (WebElement cell: columnre){  
 			//Select 20th Date   
-			if (cell.getText().equals("24")){  
-			cell.findElement(By.linkText("24")).click();  
+			if (cell.getText().equals("2")){  
+			cell.findElement(By.linkText("2")).click();  
 			break;  
 			 }  
 			}  
@@ -83,15 +91,17 @@ public void LoginBrowser() throws IOException, InterruptedException{
 		
 		driver.findElement(By.xpath(".//*[@id='flightSearchButton']")).click();
 		
-		Thread.sleep(1500L);
+		// Thread.sleep(3500L);
 		
+		//driver.findElement(By.xpath("//input[@id=outbound-M-1")).click();
 		
-		driver.findElement(By.id("outbound-M-1")).click();
+		driver.findElement(By.id("outbound-M-4")).click();
 		
-		Thread.sleep(1500L);
-		driver.findElement(By.id("inbound-M-2")).click();
+		Thread.sleep(2000L);
 		
-		Thread.sleep(900L);
+		driver.findElement(By.id("inbound-M-1")).click();
+		
+	//	Thread.sleep(900L);
 		driver.findElement(By.xpath(".//*[@id='continue']")).click();
 		
 		/*WebElement Pricecheck  = driver.findElement(By.xpath(".//*[@id='outBoundFlightList']/div[1]"));  
@@ -114,14 +124,28 @@ public void LoginBrowser() throws IOException, InterruptedException{
 		System.out.println(Finalprice);
 		
 */		driver.findElement(By.linkText("Email price quote")).click();
-		
-		driver.findElement(By.id("yourName")).sendKeys("Sukesh");
-		driver.findElement(By.id("yourEmail")).sendKeys("Sukesh515@yahoo.co.in");
+
+     // Switching Between windows
+
+         Set<String> ids = driver.getWindowHandles();
+         
+         Iterator<String> it = ids.iterator();
+         
+         String parentid = it.next();
+         String childid = it.next();
+
+         driver.switchTo().window(childid);
+    
+         
+
+		driver.findElement(By.id("yourName")).sendKeys("Swathi");
+		driver.findElement(By.id("yourEmail")).sendKeys("swathipitta@gmail.com");
 
 		driver.findElement(By.id("sendEmail")).click();
+		driver.close();
 		
-		
-		
+		driver.switchTo().window(parentid);
+		driver.close();
 		
 		
 		
