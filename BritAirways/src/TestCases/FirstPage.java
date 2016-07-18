@@ -83,15 +83,15 @@ public void LoginBrowser() throws IOException, InterruptedException{
 		
 		driver.findElement(By.xpath(".//*[@id='flightSearchButton']")).click();
 		
-		Thread.sleep(900L);
+		Thread.sleep(1500L);
 		
 		
 		driver.findElement(By.id("outbound-M-1")).click();
 		
-		Thread.sleep(900L);
+		Thread.sleep(1500L);
 		driver.findElement(By.id("inbound-M-2")).click();
 		
-		Thread.sleep(300L);
+		Thread.sleep(900L);
 		driver.findElement(By.xpath(".//*[@id='continue']")).click();
 		
 		/*WebElement Pricecheck  = driver.findElement(By.xpath(".//*[@id='outBoundFlightList']/div[1]"));  
@@ -106,6 +106,25 @@ public void LoginBrowser() throws IOException, InterruptedException{
 			break;  
 			 }  
 			}  */
+		
+		Thread.sleep(900L);
+		
+		/*WebElement Finalprice = driver.findElement(By.className("pricebackground"));
+		
+		System.out.println(Finalprice);
+		
+*/		driver.findElement(By.linkText("Email price quote")).click();
+		
+		driver.findElement(By.id("yourName")).sendKeys("Sukesh");
+		driver.findElement(By.id("yourEmail")).sendKeys("Sukesh515@yahoo.co.in");
+
+		driver.findElement(By.id("sendEmail")).click();
+		
+		
+		
+		
+		
+		
 		
 		
 		
