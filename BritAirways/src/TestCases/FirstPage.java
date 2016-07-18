@@ -83,6 +83,31 @@ public void LoginBrowser() throws IOException, InterruptedException{
 		
 		driver.findElement(By.xpath(".//*[@id='flightSearchButton']")).click();
 		
+		Thread.sleep(900L);
+		
+		
+		driver.findElement(By.id("outbound-M-1")).click();
+		
+		Thread.sleep(900L);
+		driver.findElement(By.id("inbound-M-2")).click();
+		
+		Thread.sleep(300L);
+		driver.findElement(By.xpath(".//*[@id='continue']")).click();
+		
+		/*WebElement Pricecheck  = driver.findElement(By.xpath(".//*[@id='outBoundFlightList']/div[1]"));  
+
+		List<WebElement> columnprice =Pricecheck.findElements(By.tagName("td"));
+		
+		
+		for (WebElement cell: columnprice){  
+			//Select 20th Date   
+			if (cell.getText().equals("286")){  
+			cell.findElement(By.linkText("286")).click();  
+			break;  
+			 }  
+			}  */
+		
+		
 		
 	}
 	
