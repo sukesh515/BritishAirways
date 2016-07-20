@@ -44,7 +44,7 @@ public class BrowserSelection {
 
 		{
 
-			// System.setProperty("webdriver.firefox.driver", "C:\\firefox\\FirefoxSetup24.2.0esr.exe");	
+			 System.setProperty("webdriver.firefox.bin", "C:\\Users\\sukeshswathi\\Documents\\TarunSelenium\\firefox35\\firefox.exe");	
 			
 			
 		driver =new FirefoxDriver();
