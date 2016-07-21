@@ -36,6 +36,7 @@ public class PriceSelectionPage {
       
       By search = By.xpath(".//*[@id='flightSearchButton']");
 	 
+      By MonthSelec = By.xpath(".//*[@id='ui-datepicker-div']/div[1]/div/div/span[1]");
 	 
 	 
 		public WebElement ContiuesPopup() {
@@ -131,6 +132,16 @@ public class PriceSelectionPage {
    			 driver.findElement(search).click();
    			
    		}
+         
+           
+           public String MonthSelect(){
+				
+   			return driver.findElement(MonthSelec).getText();
+   			
+   			
+   		}
+           
+           
            
            
 	}

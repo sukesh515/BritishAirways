@@ -24,10 +24,28 @@ public class HoustonBooking extends BrowserSelection {
 	price.Destination("Houston, George Bush Intercont (TX) (IAH), USA");
 	
 	price.DepatureDate().click();
-	price.MonthNextTraingle().click();
-	price.MonthNextTraingle().click();
 	
-	price.DatePicker("22");
+	
+	for (int i=0; i<12; i++){
+		
+	if(price.MonthSelect().equals("December"))
+	
+		price.DatePicker("22");
+		
+	else {		
+	price.MonthNextTraingle().click();
+		
+	}
+	
+	}
+	
+	
+	
+	
+	//price.MonthNextTraingle().click();
+	//price.MonthNextTraingle().click();
+	
+	//price.DatePicker("22");
 	
 	price.ReturnDate().click();
 	price.MonthNextTraingle().click();
