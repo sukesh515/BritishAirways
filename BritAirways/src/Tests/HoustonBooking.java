@@ -1,12 +1,12 @@
 package Tests;
 
 import java.io.IOException;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import pageObjects.PriceSelectionPage;
+import pageObjects.BookingDetailsPage;
+import pageObjects.EmailWindowPage;
+import pageObjects.FinalPricePage;
+import pageObjects.PriceDetailsPage;
 import Utils.BrowserSelection;
 
 @Test
@@ -17,51 +17,57 @@ public class HoustonBooking extends BrowserSelection {
 	
 		BrowserSelect();
 		
-	PriceSelectionPage price = new PriceSelectionPage(driver);
+BookingDetailsPage Booking = new BookingDetailsPage(driver);
 		
-	price.ContiuesPopup().click();
-	price.From("Belfast");
-	price.Destination("Houston, George Bush Intercont (TX) (IAH), USA");
+	      Booking.ContiuesPopup().click();
+	      Booking.From("Belfast");
+	      Booking.Destination("Hyderabad, Rajiv Gandhi Intl (HYD), India");
 	
-	price.DepatureDate().click();
-	price.Monthreal("December","3");
+	      Booking.DepatureDate().click();
+	      Booking.Monthreal("December","3");
  
 	
-	price.ReturnDate().click();
+	      Booking.ReturnDate().click();
+	      Booking.Monthreal("January","3");
+
+	      Booking.Adults("2");
+	      Booking.Children("1");
 	
-	price.Monthreal("January","3");
+	      Booking.Search();
 	
+PriceDetailsPage PriceSelection = new PriceDetailsPage(driver);
 	
-/*	for (int i=0; i<12; i++){
-		
-	if(price.MonthSelect().equals("December"))
+	       PriceSelection.Outbound().click();
+	       PriceSelection.Inbound().click();
+	       PriceSelection.PriceDisplay().click();
+	       
+	       
+ FinalPricePage FinalPrice = new FinalPricePage(driver);
+
+              FinalPrice.EmailLink().click();
+              FinalPrice.ChildWindowSwitch();
+              
+              
+             
+              
+              
+  EmailWindowPage Mailwindow = new EmailWindowPage(driver);
+              
+       Mailwindow.Name().sendKeys("Sukesh");
+       Mailwindow.EmailAddress().sendKeys("sukesh515");
+       Mailwindow.SendEmail().click();
+       driver.close(); 
+       
+       FinalPrice.ParentWindowSwitch();
+       driver.close();
+              
+              
+              
+              
+              
+              
+	        
 	
-		price.DatePicker("22");
-	    		
-	else {		
-	price.MonthNextTraingle().click();
-		
-	}
-	
-	}*/
-	
-	
-	//price.MonthNextTraingle().click();
-	//price.MonthNextTraingle().click();
-	
-	// price.DatePicker("22");
-	
-	
-	
-	
-	
-	/*price.MonthNextTraingle().click();
-	
-	price.DatePicker("28");*/
-	price.Adults("2");
-	price.Children("1");
-	
-	price.Search();
 	
 	
 	

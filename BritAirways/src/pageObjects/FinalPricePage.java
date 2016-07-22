@@ -1,5 +1,8 @@
 package pageObjects;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,46 +10,46 @@ import org.openqa.selenium.WebElement;
 public class FinalPricePage {
 	
 	WebDriver driver;
+	String parentid;
+	 String childid;
 	
 	public FinalPricePage (WebDriver driver){
 		
 		this.driver = driver;
 		
 	}
-		By outb = By.id("outbound-M-4");
+		By Email = By.linkText("Email price quote");
 		
-		By inb = By.id("inbound-M-1");
-		
-		By contin = By.xpath(".//*[@id='continue']");
+
 		
 		
-		public WebElement Outbound() {
+		public WebElement EmailLink() {
 			
 			
-			return driver.findElement(outb);
+			return driver.findElement(Email);
 			
 		}
 		
 		
-           public WebElement Inbound() {
+           
+		public WebDriver ChildWindowSwitch(){
 			
+
+	         Set<String> ids = driver.getWindowHandles();
+	         
+	         Iterator<String> it = ids.iterator();
+	         
+	          parentid = it.next();
+	          childid = it.next();
 			
-			return driver.findElement(inb);
+			return  driver.switchTo().window(childid);
 			
 		}
 		
+		public WebDriver ParentWindowSwitch(){
 		
-           public WebElement PriceDisplay() {
-   			
-   			
-   			return driver.findElement(contin);
-   			
-   		}
-   		
-		
-		
-		
+			return  driver.switchTo().window(parentid);
 		
 	}
 
-
+}

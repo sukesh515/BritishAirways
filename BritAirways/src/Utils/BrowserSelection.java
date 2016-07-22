@@ -44,9 +44,10 @@ public class BrowserSelection {
 
 		{
 
-			 System.setProperty("webdriver.firefox.bin", "C:\\Users\\sukeshswathi\\Documents\\TarunSelenium\\firefox35\\firefox.exe");	
+			 //System.setProperty("webdriver.firefox.bin", "C:\\Users\\sukeshswathi\\Documents\\TarunSelenium\\firefox35\\firefox.exe");	
+			System.setProperty("webdriver.firefox.bin", "C:\\firefox24\\firefox.exe");
 			
-			
+			 
 		driver =new FirefoxDriver();
 
 		}
@@ -66,7 +67,7 @@ public class BrowserSelection {
 		
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);   
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);   
 		//driver.manage().deleteAllCookies();
 		
 		
