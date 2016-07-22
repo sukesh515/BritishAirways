@@ -1,4 +1,4 @@
-package TestCases;
+package pageObjects;
 
 public class FinalPricePage {
 

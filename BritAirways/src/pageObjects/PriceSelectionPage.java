@@ -133,10 +133,33 @@ public class PriceSelectionPage {
    			
    		}
          
-           
            public String MonthSelect(){
 				
-   			return driver.findElement(MonthSelec).getText();
+      			return driver.findElement(MonthSelec).getText();
+      			
+      			
+      		}
+                   
+           
+           
+           
+           public void Monthreal(String month, String Date){
+				
+   	     	 			 
+   			for (int i=0; i<12; i++){
+   				
+   				if(MonthSelect().equals(month)){
+   				
+   				DatePicker(Date);
+   			    break;
+   				}	
+   				else 		
+   				MonthNextTraingle().click();
+   					
+   				}
+   				
+   				}
+   			 
    			
    			
    		}
@@ -144,7 +167,7 @@ public class PriceSelectionPage {
            
            
            
-	}
+	
 	
 	
 	
